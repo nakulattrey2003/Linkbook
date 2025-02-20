@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
         {/* Logo & Brand */}
         <div className="flex items-center">
-          <img src="/Logo.png" alt="LinkBook Logo" className="w-6 h-6 mb-2" />
+          <img src="/assets/logo.png" alt="LinkBook Logo" className="w-6 h-6 mb-2" />
           <div className="text-cyan-500 text-lg mb-2 ml-1 font-semibold">
             Linkbook
           </div>

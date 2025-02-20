@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
   return (
     <nav className="bg-slate-900 text-white py-4 px-6 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo & Brand Name */}
         <div className="flex items-center space-x-2">
-          <img src="/Logo.png" alt="Logo" className="w-6 h-6" />
+          <img src="/assets/logo.png" alt="Logo" className="w-6 h-6" />
           <span className="text-cyan-500 text-xl font-semibold">Linkbook</span>
         </div>
 
@@ -36,7 +51,7 @@ const Navbar = () => {
                 href="#"
                 className="text-slate-300 hover:text-cyan-500 transition"
               >
-                Base
+                Services
               </a>
             </li>
             <li>
@@ -44,14 +59,21 @@ const Navbar = () => {
                 href="#"
                 className="text-slate-300 hover:text-cyan-500 transition"
               >
-                Services
+                Contact
               </a>
             </li>
           </ul>
 
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition"
+          >
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+
           {/* User Profile Image */}
           <img
-            src="/user.jpg"
+            src="/assets/user.jpg"
             alt="User"
             className="w-10 h-10 rounded-full border-2 border-cyan-500"
           />
