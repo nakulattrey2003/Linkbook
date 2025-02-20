@@ -1,11 +1,15 @@
 import { useState } from "react";
 import React from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
-
   return (
     <>
-      <div>This is Linkbook</div>
+      <div>
+        <Navbar />
+        <Footer />
+      </div>
     </>
   );
 }
