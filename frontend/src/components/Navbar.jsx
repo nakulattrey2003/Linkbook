@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaMoon, FaSun } from "react-icons/fa";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(
@@ -64,19 +65,14 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white transition"
-          >
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
-
-          {/* User Profile Image */}
-          <img
-            src="/assets/user.jpg"
-            alt="User"
-            className="w-10 h-10 rounded-full border-2 border-cyan-500"
-          />
+          <div className="flex items-center space-x-4">
+            <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+            <img
+              src="/assets/user.jpg"
+              alt="User"
+              className="w-10 h-10 rounded-full border-2 border-cyan-500"
+            />
+          </div>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden text-cyan-300 text-2xl">
