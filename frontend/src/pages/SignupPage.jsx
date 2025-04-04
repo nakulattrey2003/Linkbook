@@ -33,11 +33,20 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-white dark:bg-gray-900 text-black dark:text-white p-4">
-      <div className="w-full max-w-2xl p-6 shadow-lg rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800">
-        <h2 className="text-2xl font-semibold mb-1 text-left">Sign Up</h2>
-        <h2 className="text-md text-gray-400 dark:text-gray-400 font-normal mb-6 text-left">
-          Start managing your contacts easily and securely in the cloud!...
+    <div className="flex items-center justify-center bg-white dark:bg-gray-900 text-black dark:text-white p-4 ">
+      <div className="w-full max-w-2xl p-6 shadow-lg rounded-lg  dark:border-gray-700 bg-white dark:bg-gray-800 border-t-6 border-cyan-600 dark:border-t-cyan-500">
+        <h2 className="text-2xl font-semibold text-left">
+          Sign
+          <span className="font-semibold text-cyan-600 dark:text-cyan-500">
+            Up
+          </span>
+        </h2>
+        <h2 className="text-sm text-gray-400 dark:text-gray-400 font-normal mb-6 text-left">
+          Start managing your contacts easily and securely with{" "}
+          <span className="font-semibold text-cyan-600 dark:text-cyan-500">
+            Linkbook
+          </span>{" "}
+          in the cloud!...
         </h2>
 
         {/* Form */}
@@ -50,7 +59,7 @@ export default function SignupPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+              className="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
             />
           </div>
 
@@ -62,7 +71,7 @@ export default function SignupPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+              className="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
             />
           </div>
 
@@ -74,7 +83,7 @@ export default function SignupPage() {
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+              className="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
             />
           </div>
 
@@ -85,17 +94,17 @@ export default function SignupPage() {
               placeholder="Phone Number"
               value={formData.number}
               onChange={handleChange}
-              className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+              className="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="block mb-1">Gender</label>
+            <label className="block mb-1 text-sm">Gender</label>
             <select
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="w-full p-2 rounded bg-gray-100 mb-4 dark:bg-gray-700 dark:border-gray-600"
+              className="w-full text-sm p-2 rounded bg-gray-100 mb-4 dark:bg-gray-700 dark:border-gray-600"
             >
               <option value="">Select</option>
               <option value="Male">Male</option>
@@ -107,11 +116,9 @@ export default function SignupPage() {
 
         {/* Profile Picture */}
         <div className="justify-center mb-4">
-          <label className="w-full mb-1 ">
-            Profile Picture
-          </label>
+          <label className="w-full mb-1 text-sm">Profile Picture</label>
           <input
-            className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+            className="w-full text-sm p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
             type="file"
             accept="image/*"
             onChange={handleImageChange}
@@ -120,7 +127,7 @@ export default function SignupPage() {
 
         {/* Submit Button */}
         <div className="mt-6 flex justify-center">
-          <button className="w-full px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 dark:bg-cyan-500 dark:hover:bg-blue-600">
+          <button className="w-full text-sm px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 dark:bg-cyan-500 dark:hover:bg-blue-600">
             Sign Up
           </button>
         </div>

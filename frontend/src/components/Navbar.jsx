@@ -27,7 +27,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links & User Profile */}
-        <div className="flex items-center space-x-6 ml-auto">
+        <div className="flex items-center space-x-6 ml-auto text-sm">
           <ul className="hidden md:flex space-x-6">
             <li>
               <a
