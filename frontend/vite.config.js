@@ -1,16 +1,12 @@
-// import { defineConfig } from 'vite'
-// import react from '@vitejs/plugin-react'
-
-// // https://vite.dev/config/
-// export default defineConfig({
-//   plugins: [react()],
-// })
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
-  darkMode: "class",
-  theme: {
-    extend: {},
-  },
-  plugins: [tailwindcss()],
+  plugins: [
+    tailwindcss({
+      darkMode: "class", // Ensure dark mode works based on the "dark" class
+      theme: {
+        extend: {},
+      },
+    }),
+  ],
 });

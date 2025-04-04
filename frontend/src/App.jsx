@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import ContactPage from "./pages/ContactPage";
+import ServicesPage from "./pages/ServicesPage";
+import AboutPage from "./pages/AboutPage";
 
 const App = () => {
   // Dark mode state
@@ -11,16 +16,6 @@ const App = () => {
     localStorage.getItem("theme") === "dark"
   );
 
-  // Apply dark mode globally
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
 
   return (
     <Router>
@@ -31,6 +26,11 @@ const App = () => {
         <div className="container mx-auto p-4">
           <Routes>
             <Route path="/home" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/services" element={<ServicesPage />} />
           </Routes>
         </div>
         <Footer />

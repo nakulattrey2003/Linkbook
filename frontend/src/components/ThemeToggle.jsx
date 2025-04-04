@@ -6,7 +6,7 @@ const ThemeToggle = ({ darkMode, setDarkMode }) => {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition"
+      className="p-2 rounded-full text-cyan-500 dark:text-cyan-500 bg-gray-200 dark:bg-gray-800 transition"
     >
       {darkMode ? (
         <IoSunny className="text-gray-400 size-4" />

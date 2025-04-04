@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const ServicePage = () => {
-  return <div>ServicePage</div>;
+const LoginPage = () => {
+  return <div>LoginPage</div>;
 };
 
-export default ServicePage;
+export default LoginPage;

@@ -1,5 +1,8 @@
 package com.nakulattrey2003.backend.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +11,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +28,24 @@ public class User {
 
     @Column(length = 1000)
     private String about;
+    
+    @Column(length = 1000)
     private String image;
+
     private String gender;
 
     @Column(name = "phone_number")
     private String number;
 
-    
+
     private boolean enabled = false;
     private boolean emailVerified = false;
     private boolean numberVerified = false;
 
     private String provider;   // google, facebook, normal
     private String providerId;
+
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY) // cascade is used to update the contacts when the user is updated likewise
+    private List<ContactModel> contacts = new ArrayList<>(); // List of contacts associated with the user
+
 }

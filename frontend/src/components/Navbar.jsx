@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { FaMoon, FaSun } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
   }, [darkMode]);
 
   return (
-    <nav className="bg-slate-900 text-white py-4 px-6 shadow-md">
+    <nav className="bg-white dark:bg-slate-900 text-gray-800 dark:text-white py-4 px-6 shadow-md transition-colors z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo & Brand Name */}
         <div className="flex items-center space-x-2">
@@ -27,44 +26,49 @@ const Navbar = () => {
           <span className="text-cyan-500 text-xl font-semibold">Linkbook</span>
         </div>
 
-        {/* Wrapper for Nav Links & User Profile */}
+        {/* Navigation Links & User Profile */}
         <div className="flex items-center space-x-6 ml-auto">
-          {/* Navigation Links */}
           <ul className="hidden md:flex space-x-6">
             <li>
               <a
-                href="#"
-                className="text-slate-300 hover:text-cyan-500 transition"
+                href="/home"
+                className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 transition"
               >
                 Home
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="text-slate-300 hover:text-cyan-500 transition"
+                href="/about"
+                className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 transition"
               >
                 About
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="text-slate-300 hover:text-cyan-500 transition"
+                href="/services"
+                className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 transition"
               >
                 Services
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="text-slate-300 hover:text-cyan-500 transition"
+                href="/contact"
+                className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 transition"
               >
                 Contact
               </a>
             </li>
+            <li>
+              <button className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 transition">
+                Logout
+              </button>
+            </li>
           </ul>
 
+          {/* Dark Mode Toggle */}
           <div className="flex items-center space-x-4">
             <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
             <img
@@ -75,7 +79,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-cyan-300 text-2xl">
+          <button className="md:hidden text-cyan-500 text-2xl">
             <FaBars />
           </button>
         </div>
