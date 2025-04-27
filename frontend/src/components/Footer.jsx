@@ -22,25 +22,25 @@ const Footer = () => {
         <div className="flex space-x-6 mt-4 md:mt-0">
           <a
             href="#"
-            className="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition text-lg"
+            className="text-gray-500 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-500 transition text-lg"
           >
             <FaFacebookF />
           </a>
           <a
             href="#"
-            className="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition text-lg"
+            className="text-gray-500 dark:text-gray-500 hover:text-cyan-600 dark:hover:text-cyan-500 transition text-lg"
           >
             <FaTwitter />
           </a>
           <a
             href="#"
-            className="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition text-lg"
+            className="text-gray-500 dark:text-gray-500 hover:text-cyan-600 dark:hover:text-cyan-500 transition text-lg"
           >
             <FaInstagram />
           </a>
           <a
             href="#"
-            className="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition text-lg"
+            className="text-gray-500 dark:text-gray-500 hover:text-cyan-600 dark:hover:text-cyan-500 transition text-lg"
           >
             <FaLinkedinIn />
           </a>

@@ -48,4 +48,6 @@ public class UserModel {
     @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL, fetch = FetchType.LAZY) // cascade is used to update the contacts when the user is updated likewise
     private List<ContactModel> contacts = new ArrayList<>(); // List of contacts associated with the user
 
+    // @OneToMany(mappedBy = "contacts" , cascade = CascadeType.ALL, fetch = FetchType.EAGER) // eager is used to fetch the social links when the user is fetched
+    // private List<SocialLinkModel> socialLinks = new ArrayList<>(); // List of social links associated with the user
 }
