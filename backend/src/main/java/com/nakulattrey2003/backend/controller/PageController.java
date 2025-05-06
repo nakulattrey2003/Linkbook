@@ -2,10 +2,13 @@ package com.nakulattrey2003.backend.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.multipart.MultipartFile;
 
+import com.nakulattrey2003.backend.model.UserModel;
 import com.nakulattrey2003.backend.response.SignupResponse;
 
 @RestController
@@ -13,22 +16,14 @@ import com.nakulattrey2003.backend.response.SignupResponse;
 public class PageController 
 {
     @PostMapping("/signup")
-    public SignupResponse signup(@RequestParam("name") String name,
-                     @RequestParam("email") String email,
-                     @RequestParam("password") String password,
-                     @RequestParam("number") String number,
-                     @RequestParam("gender") String gender,
-                     @RequestParam(value = "image", required = false) String image) 
+    public SignupResponse signup(@ModelAttribute UserModel user, @RequestParam("image") String image) 
     {
         System.out.println("Signup request received");
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
-        System.out.println("Password: " + password);
-        System.out.println("Number: " + number);
-        System.out.println("Gender: " + gender);
-        // System.out.println("Image (Base64 String): " + image);
+        System.out.println("Name: " + user.getName());
+        System.out.println("Email: " + user.getEmail());
+        // System.out.println("Image: " + image);
 
-        return new SignupResponse(name, email, password, number, gender, image);
+        return new SignupResponse(user.getName(), user.getEmail(), user.getPassword(), user.getNumber(), user.getGender(), image);
     }
     
     @GetMapping("/login")

@@ -184,7 +184,7 @@ export default function SignupPage() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setFormData({ ...formData, image: reader.result }); // Convert to Base64
+        setFormData({ ...formData, image: reader.result }); // store base64 image string for preview
       };
       reader.readAsDataURL(file);
     }
@@ -198,6 +198,8 @@ export default function SignupPage() {
     Object.keys(formData).forEach((key) => {
       formDataToSend.append(key, formData[key]);
     });
+
+    formDataToSend.append("image", formData.image);
 
     // Send data to backend
     const response = await fetch("http://localhost:8080/signup", {
