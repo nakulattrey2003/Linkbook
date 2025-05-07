@@ -2,22 +2,17 @@ package com.nakulattrey2003.backend.impl;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.logging.Logger;
 
-import org.hibernate.validator.internal.util.logging.LoggerFactory;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Service;
 
 import com.nakulattrey2003.backend.model.UserModel;
 import com.nakulattrey2003.backend.repository.UserRepo;
 import com.nakulattrey2003.backend.service.UserService;
+
+import org.slf4j.Logger;
 
 @Service
 public class UserServiceImpl implements UserService
@@ -25,7 +20,7 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserRepo userRepo;
     
-    // private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     
     @Override
     public UserModel saveUser(UserModel user) {
@@ -48,6 +43,17 @@ public class UserServiceImpl implements UserService
             updatedUser.setNumber(user.getNumber());
             updatedUser.setGender(user.getGender());
             updatedUser.setImage(user.getImage());
+            updatedUser.setAbout(user.getAbout());
+            updatedUser.setEnabled(user.isEnabled());
+            updatedUser.setEmailVerified(user.isEmailVerified());
+            updatedUser.setNumberVerified(user.isNumberVerified());
+            updatedUser.setProvider(user.getProvider());
+            updatedUser.setProviderId(user.getProviderId());
+            updatedUser.setContacts(user.getContacts());    
+
+            UserModel savedUser = userRepo.save(updatedUser);
+            logger.info("User updated successfully: " + updatedUser.getName());
+
             return Optional.of(userRepo.save(updatedUser));
         }
         return Optional.empty();
